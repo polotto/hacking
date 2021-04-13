@@ -1,0 +1,4 @@
+#!/bin/bash
+
+NMAP_LOG="nmap.log"
+nmap -sC -sV -oN $1/$NMAP_LOG $2

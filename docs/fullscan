@@ -1,0 +1,17 @@
+echo "********** Multiple scan with NMAP, Nikto and Gobuster **********"
+echo "Log destination: $1"
+echo "Target: $2"
+echo "*****************************************************************"
+
+NMAP_LOG="nmap.log"
+NIKTO_LOG="nikto.log"
+GOBUSTER_LOG="gobuster.log"
+
+# https://stackoverflow.com/questions/3004811/how-do-you-run-multiple-programs-in-parallel-from-a-bash-script
+(trap 'kill 0' SIGINT; nmap -sC -sV -oN $1/$NMAP_LOG $2 & 
+nikto -h $2 | tee $1/$NIKTO_LOG & 
+gobuster dir -u $2 -w ~/node-dirbuster/lists/directory-list-lowercase-2.3-medium.txt | tee $1/$GOBUSTER_LOG)
+
+echo "*****************************************************************"
+echo "Finished"
+echo "*****************************************************************"

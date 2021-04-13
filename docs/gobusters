@@ -1,0 +1,4 @@
+#!/bin/bash
+
+GOBUSTER_LOG="gobuster.log"
+gobuster dir -u $2 -w ~/node-dirbuster/lists/directory-list-lowercase-2.3-medium.txt | tee $1/$GOBUSTER_LOG
