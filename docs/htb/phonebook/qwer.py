@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# https://github.com/jmlgomez73/Phonebook-Challenge-HackTheBox/blob/main/HTB_Phonebook_CTF.py
+
 import string
 import requests
 import re
