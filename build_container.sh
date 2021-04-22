@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t polotto/kali .
+docker build --no-cache -t polotto/kali .
